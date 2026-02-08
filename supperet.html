@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوبيرات العائلة - يابوس</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; background:#f5f5f5; }
+  header { background:#1d3557; color:white; text-align:center; padding:20px; }
+  header h1 { margin:0; font-size:28px; }
+  header p { margin:5px 0 0; font-size:16px; }
+  .sub-header { text-align:center; margin:5px 0 20px; font-weight:bold; color:#457b9d; font-size:16px; }
+
+  .buttons { display:flex; justify-content:center; gap:15px; margin-bottom:20px; flex-wrap:wrap; }
+  .buttons a { background:#e63946; color:white; text-decoration:none; padding:10px 15px; border-radius:20px; font-weight:bold; }
+
+  .categories { position: sticky; top: 0; background: white; display:flex; gap:10px; overflow-x:auto; padding:10px; border-bottom:2px solid #ddd; z-index:100; }
+  .categories a { background:#2a9d8f; color:white; text-decoration:none; padding:8px 12px; border-radius:20px; white-space:nowrap; }
+
+  h2 { margin:20px 10px 10px; color:#1d3557; }
+  .products { display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap:10px; padding:10px; }
+  .product { background:white; padding:10px; border-radius:10px; text-align:center; }
+  .product img { width:100%; height:110px; object-fit:cover; border-radius:8px; margin-bottom:5px; }
+  .product input { width:50px; padding:3px; margin-bottom:5px; }
+  .product button { background:#1d3557; color:white; border:none; padding:6px 10px; border-radius:6px; cursor:pointer; }
+
+  #cart { background:white; margin:15px; padding:15px; border-radius:10px; }
+  #cart ul { list-style:none; padding:0; }
+  #cart li { display:flex; justify-content:space-between; margin-bottom:5px; }
+  .remove { background:red; color:white; border:none; padding:2px 6px; border-radius:5px; cursor:pointer; }
+  .order { display:block; text-align:center; background:#25d366; color:white; padding:10px; margin-top:10px; text-decoration:none; border-radius:10px; }
+
+  #backTop { position:fixed; bottom:20px; right:20px; background:#e63946; color:white; padding:10px 12px; border-radius:50%; font-size:18px; cursor:pointer; display:none; z-index:999; }
+
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>سوبيرات العائلة - يابوس</h1>
+  <p>العنوان : مركز قرب مسجد عبد الحميد بن باديس</p>
+  <div class="sub-header">الجودة – الوفرة – السعر</div>
+</header>
+
+<div class="buttons">
+  <a href="https://www.facebook.com/profile.php?id=61577806362544" target="_blank">الصفحة على فايسبوك </a>
+  <a href="https://www.facebook.com/61577806362544/posts/122159380352926878/?app=fbl" target="_blank">عروض وتخفيضات شهر رمضان</a>
+</div>
+
+<div class="categories">
+  <a href="#bakery">🥖 المعجنات</a>
+  <a href="#grains">🌾 الحبوب</a>
+  <a href="#cleaning">🧼 مواد التنظيف</a>
+  <a href="#sweets">🍫 الحلويات</a>
+  <a href="#dairy">🥛 الحليب ومشتقاته</a>
+  <a href="#drinks">🥤 المشروبات</a>
+</div>
+
+<!-- المعجنات -->
+<h2 id="bakery">🥖 المعجنات</h2>
+<div class="products">
+  <div class="product"><img src="sugar.jpg" alt=""><p>سكر</p><input type="number" value="1" min="1"><button onclick="addQty('سكر', this)">أضف</button></div>
+  <div class="product"><img src="oil.jpg" alt=""><p>زيت</p><input type="number" value="1" min="1"><button onclick="addQty('زيت', this)">أضف</button></div>
+  <div class="product"><img src="salt.jpg" alt=""><p>ملح</p><input type="number" value="1" min="1"><button onclick="addQty('ملح', this)">أضف</button></div>
+  <div class="product"><img src="coffee.jpg" alt=""><p>قهوة</p><input type="number" value="1" min="1"><button onclick="addQty('قهوة', this)">أضف</button></div>
+  <div class="product"><img src="eggs.jpg" alt=""><p>بيض</p><input type="number" value="1" min="1"><button onclick="addQty('بيض', this)">أضف</button></div>
+</div>
+
+<!-- الحبوب -->
+<h2 id="grains">🌾 الحبوب</h2>
+<div class="products">
+  <div class="product"><img src="lentils.jpg" alt=""><p>عدس</p><input type="number" value="1" min="1"><button onclick="addQty('عدس', this)">أضف</button></div>
+  <div class="product"><img src="lobia.jpg" alt=""><p>لوبيا</p><input type="number" value="1" min="1"><button onclick="addQty('لوبيا', this)">أضف</button></div>
+  <div class="product"><img src="chickpeas.jpg" alt=""><p>حمص</p><input type="number" value="1" min="1"><button onclick="addQty('حمص', this)">أضف</button></div>
+  <div class="product"><img src="rice.jpg" alt=""><p>أرز</p><input type="number" value="1" min="1"><button onclick="addQty('أرز', this)">أضف</button></div>
+</div>
+
+<!-- مواد التنظيف -->
+<h2 id="cleaning">🧼 مواد التنظيف</h2>
+<div class="products">
+  <div class="product"><img src="omo.jpg" alt=""><p>Omo</p><input type="number" value="1" min="1"><button onclick="addQty('Omo', this)">أضف</button></div>
+  <div class="product"><img src="isis.jpg" alt=""><p>Isis</p><input type="number" value="1" min="1"><button onclick="addQty('Isis', this)">أضف</button></div>
+  <div class="product"><img src="soap.jpg" alt=""><p>صابون</p><input type="number" value="1" min="1"><button onclick="addQty('صابون', this)">أضف</button></div>
+  <div class="product"><img src="javel.jpg" alt=""><p>جافيل</p><input type="number" value="1" min="1"><button onclick="addQty('جافيل', this)">أضف</button></div>
+  <div class="product"><img src="shampoo.jpg" alt=""><p>شامبو</p><input type="number" value="1" min="1"><button onclick="addQty('شامبو', this)">أضف</button></div>
+</div>
+
+<!-- الحلويات -->
+<h2 id="sweets">🍫 الحلويات</h2>
+<div class="products">
+  <div class="product"><img src="chocolate.jpg" alt=""><p>شوكولاطة</p><input type="number" value="1" min="1"><button onclick="addQty('شوكولاطة', this)">أضف</button></div>
+  <div class="product"><img src="cake.jpg" alt=""><p>ڨاطو</p><input type="number" value="1" min="1"><button onclick="addQty('ڨاطو', this)">أضف</button></div>
+</div>
+
+<!-- الحليب ومشتقاته -->
+<h2 id="dairy">🥛 الحليب ومشتقاته</h2>
+<div class="products">
+  <div class="product"><img src="yogurt.jpg" alt=""><p>ياغورت</p><input type="number" value="1" min="1"><button onclick="addQty('ياغورت', this)">أضف</button></div>
+  <div class="product"><img src="milk.jpg" alt=""><p>حليب</p><input type="number" value="1" min="1"><button onclick="addQty('حليب', this)">أضف</button></div>
+  <div class="product"><img src="condensed.jpg" alt=""><p>كونديا</p><input type="number" value="1" min="1"><button onclick="addQty('كونديا', this)">أضف</button></div>
+  <div class="product"><img src="cheese.jpg" alt=""><p>جبن</p><input type="number" value="1" min="1"><button onclick="addQty('جبن', this)">أضف</button></div>
+</div>
+
+<!-- المشروبات -->
+<h2 id="drinks">🥤 المشروبات</h2>
+<div class="products">
+  <div class="product"><img src="juice.jpg" alt=""><p>عصائر</p><input type="number" value="1" min="1"><button onclick="addQty('عصائر', this)">أضف</button></div>
+  <div class="product"><img src="soda.jpg" alt=""><p>مشروبات غازية</p><input type="number" value="1" min="1"><button onclick="addQty('مشروبات غازية', this)">أضف</button></div>
+</div>
+
+<!-- السلة -->
+<div id="cart">
+  <h3>🧺 السلة</h3>
+  <ul id="cartList"></ul>
+  <a id="orderBtn" class="order" href="#">📲 اطلب عبر واتساب</a>
+</div>
+
+<button id="backTop" onclick="scrollToTop()">⬆️</button>
+
+<script>
+let cart = [];
+
+function addQty(item, btn) {
+  let qty = parseInt(btn.previousElementSibling.value) || 1;
+  for(let i=0;i<qty;i++){ cart.push(item); }
+  render();
+}
+
+function removeItem(index){
+  cart.splice(index,1);
+  render();
+}
+
+function render(){
+  let list = document.getElementById("cartList");
+  list.innerHTML="";
+  cart.forEach((item,i)=>{
+    list.innerHTML+=`<li>${item} <button class="remove" onclick="removeItem(${i})">×</button></li>`;
+  });
+  let msg="طلب من سوبيرات العائلة - يابوس:%0A"+cart.join("%0A");
+  document.getElementById("orderBtn").href="https://wa.me/213675871218?text="+msg;
+}
+
+// زر رجوع للأعلى
+let backTop = document.getElementById("backTop");
+window.onscroll = function() {
+  if(document.body.scrollTop>300 || document.documentElement.scrollTop>300){
+    backTop.style.display="block";
+  }else{ backTop.style.display="none"; }
+};
+function scrollToTop(){
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
